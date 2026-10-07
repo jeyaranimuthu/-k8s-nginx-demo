@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: nginx-gitops
-  namespace: gitops-demo
+  namespace: gitops-dev
 spec:
   type: NodePort
   selector:
