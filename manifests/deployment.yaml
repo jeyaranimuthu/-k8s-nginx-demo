@@ -2,12 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-dev
-  namespace: gitops-dev
+  namespace: gitops-stag
 spec:
   replicas: 3
   selector:
     matchLabels:
       app: nginx-gitops
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
   template:
     metadata:
       labels:
